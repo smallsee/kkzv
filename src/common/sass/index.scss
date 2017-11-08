@@ -1,0 +1,7 @@
+@import "variable","base","mixin","class";
+
+a{
+  &:hover{
+    color: #c34b69;
+  }
+}
