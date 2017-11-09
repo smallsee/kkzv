@@ -6,6 +6,7 @@
       <template v-for="(item,index) in data">
       <li>
         <image-title-cover
+          :url="'/#/article/' + item.id"
           :img="item.thumb"
           :title="item.title"
           :textAlign="'left'"

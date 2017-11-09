@@ -1,5 +1,5 @@
 <template>
-  <div class="kkz-tv_show">
+  <div class="kkz-movie_show">
 
     <transition name="slide">
       <div v-if="isCloseLight" class="mask-box"></div>
@@ -11,16 +11,12 @@
         <div>
           <Breadcrumb separator="/">
 
-            <Breadcrumb-item href="/tv">
+            <Breadcrumb-item href="/movie">
               视频
             </Breadcrumb-item>
 
-            <Breadcrumb-item :href="'/tv/' + data.id">
+            <Breadcrumb-item :href="'/movie/' + data.id">
               {{data.title}}
-            </Breadcrumb-item>
-
-            <Breadcrumb-item>
-              第{{ file + 1 }}集：{{file_name}}
             </Breadcrumb-item>
 
           </Breadcrumb>
@@ -33,54 +29,34 @@
       </div>
 
 
-      <div class="tv">
-        <iframe :src="'http://jiexi.92fz.cn/player/vip.php?url=' + file_url " width="100%" scrolling="no" height="551.25px" ></iframe>
+      <div class="movie">
+        <iframe :src="'http://jiexi.92fz.cn/player/vip.php?url=' + data.url " width="100%" scrolling="no" height="551.25px" ></iframe>
       </div>
-
-      <div class="file-info clearfix">
-
-        <template v-for="(item,index) in data.files">
-          <a :href="'/#/tv/detail/' + data.id + '?file=' + index" :class="{active: index == file}" class="file float-left"
-             @click="_changFile(index)"
-          >{{index + 1}}.{{item.file_name}}</a>
-        </template>
-
-      </div>
+      
     </div>
   </div>
 </template>
 
 <script>
-  import {getShowTvList} from 'api/tv'
+  import {getShowMovieList} from 'api/movie'
   export default {
     data() {
       return {
         isCloseLight: false,
         data:[],
         file: 0,
-        file_url: '',
-        file_name: '',
       }
     },
     created() {
-
-      this.file = parseInt(this.$route.query.file) ? parseInt(this.$route.query.file) : 0;
-      this._getTvData(this.$route.params.id);
+      this._getMovieData(this.$route.params.id);
     },
     methods:{
       _changeLight() {
         this.isCloseLight = !this.isCloseLight
       },
-      _changFile(id) {
-        this.file = id;
-        this.file_url = this.data.files[this.file].file_url
-        this.file_name = this.data.files[this.file].file_name
-      },
-      _getTvData(id) {
-        getShowTvList(id).then(res => {
+      _getMovieData(id) {
+        getShowMovieList(id).then(res => {
           this.data = res.data;
-          this.file_url = this.data.files[this.file].file_url;
-          this.file_name = this.data.files[this.file].file_name
         })
       }
     }
@@ -88,7 +64,7 @@
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  .kkz-tv_show{
+  .kkz-movie_show{
     .slide-enter-active, .slide-leave-active{
       transition: all 1s;
     }
@@ -122,7 +98,7 @@
         color: #dd5862;
       }
     }
-    .tv{
+    .movie{
       position: relative;
       margin-top: 20px;
       z-index:30;

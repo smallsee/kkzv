@@ -58,7 +58,7 @@
       },
       url:{
         type:String,
-        default: "#"
+        default: "javascript:void(0);"
       },
       title:{
         type:String,

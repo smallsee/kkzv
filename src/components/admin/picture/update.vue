@@ -36,7 +36,7 @@
           :on-format-error="handleFormatError"
           :on-exceeded-size="handleMaxSize"
           type="drag"
-          action="http://127.0.0.1:8000/api/image/mote"
+          action="http://www.lifanh.com/api/image/mote"
           :data="imgData"
           style="display: inline-block;width:80px">
           <div v-if="!formValidate.thumb" style="width: 80px;height:80px;line-height: 80px;border: 1px dashed #dddee1;">
@@ -80,7 +80,7 @@
         defaultList: [],
         canCrop:true,
         /*测试上传图片的接口，返回结构为{url:''}*/
-        uploadUrl:'http://127.0.0.1:8000/api/crop/upload/',
+        uploadUrl:'http://www.lifanh.com/api/crop/upload/',
         topicList: [],
         formValidate: {
           title: '',

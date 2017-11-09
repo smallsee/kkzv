@@ -151,14 +151,14 @@
         </div>
         <div class="main-right">
 
-          <header-title :headerTitle="'热门文章'" ></header-title>
+          <header-title :headerTitle="'热门电影'" ></header-title>
 
-          <template v-for="(item,index) in articleHot">
+          <template v-for="(item,index) in movieHot">
             <image-title-row
               :isFlexEnd="true"
               :img="item.thumb"
-              :tvTitle="item.title"
-              :tvUrl="'/#/article/' + item.id"
+              :title="item.title"
+              :url="'/#/movie/' + item.id"
               :num="item.see + '次观看'"
             ></image-title-row>
           </template>
@@ -179,7 +179,7 @@
 
 <script>
   import {getShowTvList,getRecommendTvList,getTvList} from 'api/tv'
-  import {getHotArticleList} from 'api/article'
+  import {getHotMovieList} from 'api/movie'
   import {postStoreCommit,postStoreFav,gethasFav} from 'api/common'
   import ImageTitleRate from 'base/image-title-rate/image-title-rate'
   import {ERR_OK,has_delete,has_store} from 'api/config';
@@ -214,8 +214,8 @@
         commitTotal: 0,
         commitNowPage: 1,
 
-        articleHot:[],
-        articleHotPage: 5,
+        movieHot:[],
+        movieHotPage: 5,
 
 
 
@@ -225,7 +225,7 @@
     created() {
       this._getTvData(this.$route.params.id);
       this._getTvList();
-      this._getArticleHotList();
+      this._getMovieHotList();
       this._hasFav();
     },
     methods:{
@@ -251,10 +251,10 @@
           }
         })
       },
-      _getArticleHotList(){
-        getHotArticleList().then((res) => {
+      _getMovieHotList(){
+        getHotMovieList().then((res) => {
           if (res.meta.errno === ERR_OK){
-            this.articleHot = res.data.slice(0,this.articleHotPage);
+            this.movieHot = res.data.slice(0,this.movieHotPage);
           }else{
             this.$Message.error(res.message);
           }
@@ -382,6 +382,7 @@
     watch: {
       '$route': function (route) {
         this._hasFav();
+        this._getTvData(this.$route.params.id);
       },
     }
   }

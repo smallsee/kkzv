@@ -151,7 +151,7 @@
       if (!this.isLogin){
         this.api_token = false;
       }
-      this._getArticleData(this.$route.params.id,this.api_token);
+      this._getArticleData(this.$route.params.id);
       this._hasFav();
     },
     methods:{
@@ -250,6 +250,12 @@
     },
     components: {
       WriteCommit
+    },
+    watch: {
+      '$route': function (route) {
+        this._hasFav();
+        this._getArticleData(this.$route.params.id);
+      },
     }
   }
 </script>

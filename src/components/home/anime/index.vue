@@ -131,14 +131,14 @@
         akiraNow: [],
         akiraDataNow: [],
 
-        pageHotSize: 4,
+        pageHotSize: 6,
         dataPictureHot: [],
         dataArticleHot: [],
 
 
         dataTotal:[],
         sortData:[],
-        sortPage:5,
+        sortPage:6,
         total: 0,
         pageSize: 16
       }

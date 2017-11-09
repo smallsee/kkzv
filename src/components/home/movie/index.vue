@@ -79,6 +79,33 @@
                   :num="item.see + '次观看'"
               ></image-title-row>
           </template>
+
+
+          <header-title :headerTitle="'热门图片'" ></header-title>
+          <template v-for="(item,index) in dataPictureHot">
+            <image-title-row
+              :isBox="true"
+              :isFlexEnd="true"
+              :img="item.thumb"
+              :title="item.title"
+              :url="'/#/picture/' + item.id"
+              :num="item.see + '次观看'"
+            ></image-title-row>
+          </template>
+
+          <header-title :headerTitle="'热门电视剧'" ></header-title>
+          <template v-for="(item,index) in dataTvHot">
+            <image-title-row
+              :isBox="true"
+              :isFlexEnd="true"
+              :img="item.thumb"
+              :title="item.title"
+              :url="'/#/tv/' + item.id"
+              :num="item.see + '次观看'"
+            ></image-title-row>
+          </template>
+
+
         </div>
 
       </div>
@@ -94,6 +121,8 @@
   import ImageTitleRow from 'base/image-title-row/image-title-row'
   import ImageTitleRate from 'base/image-title-rate/image-title-rate'
   import {getMovieList,getTagList, getStarList,getDirectorList} from 'api/movie';
+  import {getHotTvList} from 'api/tv';
+  import {getHotPictureList} from 'api/picture';
   import {ERR_OK} from 'api/config';
 
   export default {
@@ -115,9 +144,14 @@
         directorNow: [],
         directorDataNow: [],
 
+
+        pageHotSize: 6,
+        dataPictureHot: [],
+        dataTvHot: [],
+
         dataTotal:[],
         sortData:[],
-        sortPage:10,
+        sortPage:6,
         total: 0,
         pageSize: 16
       }
@@ -127,8 +161,30 @@
       this._getTagList();
       this._getStarList();
       this._getDirectorList();
+      this._getPictureHotList();
+      this._getTvHotList();
     },
     methods:{
+      _getPictureHotList(){
+        getHotPictureList().then((res) => {
+          if (res.meta.errno === ERR_OK){
+            this.dataPictureHot = res.data.slice(0,this.pageHotSize);
+          }else{
+            this.$Message.error(res.message);
+          }
+
+        })
+      },
+      _getTvHotList(){
+        getHotTvList().then((res) => {
+          if (res.meta.errno === ERR_OK){
+            this.dataTvHot = res.data.slice(0,this.pageHotSize);
+          }else{
+            this.$Message.error(res.message);
+          }
+
+        })
+      },
       _getStarList(){
         getStarList().then(res => {
           if (res.meta.errno === ERR_OK){

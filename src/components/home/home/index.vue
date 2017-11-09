@@ -77,7 +77,7 @@
 
             this.hotAnime = res.data.anime['hot'].slice(0,5);
             this.hotTv = res.data.tv['hot'].slice(0,5);
-            this.hotPicture = res.data.picture['hot'].slice(0,5);
+            this.hotPicture = res.data.picture['hot'].slice(0,6);
             this.hotMovie = res.data.movie['hot'].slice(0,3);
             this.hotArticle = res.data.article['hot'].slice(0,5);
 

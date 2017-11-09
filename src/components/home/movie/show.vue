@@ -79,9 +79,9 @@
               <div class="相关资源"></div>
 
 
-              <a :href="data.url">
+              <a :href="'/#/movie/detail/' + data.id ">
                 <Button size="small" type="ghost" shape="circle">
-                  <span class="icon"><Icon  type="cloud"></Icon></span>下载</Button>
+                  <span class="icon"><Icon  type="cloud"></Icon></span>播放</Button>
               </a>
 
             </div>
@@ -143,14 +143,14 @@
         </div>
         <div class="main-right">
 
-          <header-title :headerTitle="'热门文章'" ></header-title>
+          <header-title :headerTitle="'热门电视剧'" ></header-title>
 
-          <template v-for="(item,index) in articleHot">
+          <template v-for="(item,index) in tvHot">
             <image-title-row
               :isFlexEnd="true"
               :img="item.thumb"
-              :movieTitle="item.title"
-              :movieUrl="'/#/article/' + item.id"
+              :title="item.title"
+              :url="'/#/tv/' + item.id"
               :num="item.see + '次观看'"
             ></image-title-row>
           </template>
@@ -171,7 +171,7 @@
 
 <script>
   import {getShowMovieList,getRecommendMovieList,getMovieList} from 'api/movie'
-  import {getHotArticleList} from 'api/article'
+  import {getHotTvList} from 'api/tv'
   import {postStoreCommit,postStoreFav,gethasFav} from 'api/common'
   import ImageTitleRate from 'base/image-title-rate/image-title-rate'
   import {ERR_OK,has_delete,has_store} from 'api/config';
@@ -206,8 +206,8 @@
         commitTotal: 0,
         commitNowPage: 1,
 
-        articleHot:[],
-        articleHotPage: 5,
+        tvHot:[],
+        tvHotPage: 10,
 
 
 
@@ -217,7 +217,7 @@
     created() {
       this._getMovieData(this.$route.params.id);
       this._getMovieList();
-      this._getArticleHotList();
+      this._getTvHotList();
       this._hasFav();
     },
     methods:{
@@ -243,10 +243,10 @@
           }
         })
       },
-      _getArticleHotList(){
-        getHotArticleList().then((res) => {
+      _getTvHotList(){
+        getHotTvList().then((res) => {
           if (res.meta.errno === ERR_OK){
-            this.articleHot = res.data.slice(0,this.articleHotPage);
+            this.tvHot = res.data.slice(0,this.tvHotPage);
           }else{
             this.$Message.error(res.message);
           }
@@ -374,6 +374,7 @@
     watch: {
       '$route': function (route) {
         this._hasFav();
+        this._getMovieData(this.$route.params.id);
       },
     }
   }

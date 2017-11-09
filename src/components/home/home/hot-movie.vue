@@ -5,7 +5,7 @@
     <ul class="clearfix">
       <template v-for="(item,index) in data">
         <li>
-          <image-title-cover :textColor="'#ff9400'" :url="'/#/movie/' + item.id" :img="item.thumb" :title="item.title" textAlign="left" textFont="14px" :width="250" :height="150"></image-title-cover>
+          <image-title-cover :textColor="'#c6fff5'" :url="'/#/movie/' + item.id" :img="item.thumb" :title="item.title" textAlign="left" textFont="14px" :width="250" :height="180"></image-title-cover>
         </li>
       </template>
 

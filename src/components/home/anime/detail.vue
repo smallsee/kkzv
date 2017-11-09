@@ -34,7 +34,7 @@
 
 
       <div class="anime">
-        <iframe :src="'http://jiexi.071811.cc/jx.php?url=' + file_url " width="100%" scrolling="no" height="551.25px" ></iframe>
+        <iframe :src="'http://jiexi.92fz.cn/player/vip.php?url=' + file_url " width="100%" scrolling="no" height="551.25px" ></iframe>
       </div>
 
       <div class="file-info clearfix">

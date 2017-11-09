@@ -123,7 +123,7 @@
                 :isShowText="false"
                 :img="item.thumb"
                 :title="item.title"
-                :url="'/#/anime/detail/' + item.id"
+                :url="'/#/anime/' + item.id"
                 :num="item.see + '次观看'"
               ></image-title-row>
             </template>

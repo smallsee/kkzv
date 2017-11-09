@@ -8,7 +8,7 @@
       </a>
 
       <a href="#" class="mascot">
-        <img src="./icon64_maimeng1.png" alt="" height="40">
+        <img src="./xiaozou.png" alt="" height="40">
       </a>
 
       <span class="purpose">一个高逼格的

@@ -7,7 +7,7 @@
 
 
     <div class="video margin-top-10">
-      <iframe :src="'http://jiexi.071811.cc/jx.php?url=' + videoNow " width="100%" scrolling="no" height="551.25px" ></iframe>
+      <iframe :src="'http://jiexi.92fz.cn/player/vip.php?url=' + videoNow " width="100%" scrolling="no" height="551.25px" ></iframe>
     </div>
 
   </div>

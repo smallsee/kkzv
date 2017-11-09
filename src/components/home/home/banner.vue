@@ -10,7 +10,7 @@
         <Carousel  dots="none" autoplay v-model="banner_item" @on-change="bannerChange">
           <template v-for="(item,index) in banner">
           <Carousel-item>
-            <image-title-cover :img="item.thumb" :width="430" :height="300" :title="item.title"></image-title-cover>
+            <image-title-cover :url="'/#/anime/' + item.id" :img="item.thumb" :width="430" :height="300" :title="item.title"></image-title-cover>
           </Carousel-item>
           </template>
         </Carousel>
@@ -21,7 +21,7 @@
 
         <template v-for="(item,index) in banner_list">
           <li class="float-left">
-            <image-title-cover :img="item.thumb" :textFont="'12px'" :title="item.title" :isNoMarginRight="(index+1) % 3 === 0"></image-title-cover>
+            <image-title-cover :url="'/#/picture/' + item.id" :img="item.thumb" :textFont="'12px'" :title="item.title" :isNoMarginRight="(index+1) % 3 === 0"></image-title-cover>
           </li>
         </template>
 

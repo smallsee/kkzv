@@ -35,6 +35,7 @@ import AnimeShow from '@/components/home/anime/show'
 
 import Movie from '@/components/home/movie/index'
 import MovieShow from '@/components/home/movie/show'
+import MovieDetail from '@/components/home/movie/detail'
 
 import Picture from '@/components/home/picture/index'
 import PictureShow from '@/components/home/picture/show'
@@ -81,6 +82,7 @@ const router =  new Router({
 
         { path: '/movie', component: Movie, name: '电影'},
         { path: '/movie/:id', component: MovieShow, name: '电影详情页',meta: { notKeepAlive: true }},
+        { path: '/movie/detail/:id', component: MovieDetail, name: '电影播放',meta: { notKeepAlive: true }},
 
         { path: '/picture', component: Picture, name: '图片'},
         { path: '/picture/:id', component: PictureShow, name: '图片详情页',meta: { notKeepAlive: true }},

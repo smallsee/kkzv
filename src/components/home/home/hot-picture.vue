@@ -4,7 +4,7 @@
 
     <ul class="clearfix">
       <template v-for="(item,index) in data">
-      <li>
+      <li :class="{'no-margin-right' : (index + 1 ) % 3 ===0}">
         <a :href="'/#/picture/' + item.id"><img v-lazy="item.thumb" alt=""></a>
       </li>
       </template>
@@ -41,6 +41,7 @@
         margin-top: 10px;
         img{
           width: 100%;
+          height: 100%;
         }
       }
     }

@@ -30,14 +30,22 @@
 
             <template v-if="data.length > 0" v-for="(item,index) in data">
 
-            <li class="float-left margin-right-10">
-              <image-title-rate   width="150px" imgHeight="150px"
-                    :isNoMarginRight="(index+1)%4 === 0 ? true : false"
-                    :img="item.thumb"
-                    :url="'/#/picture/'+item.id"
-                    :title="item.title"
-                    :isRate="false"
-              ></image-title-rate>
+            <li class="float-left margin-right-10" :class="{'no-margin-right' : (index + 1 ) % 4 ===0}">
+
+              <div class="picture-wrapper" >
+                <div class="picture-box">
+                  <a :href="'/#/picture/' + item.id"><img v-lazy="item.thumb" alt=""></a>
+                </div>
+                <a :href="'/#/picture/' + item.id"><p>{{item.title}}</p></a>
+              </div>
+
+              <!--<image-title-rate   width="150px" imgHeight="150px"-->
+                    <!--:isNoMarginRight="(index+1)%4 === 0 ? true : false"-->
+                    <!--:img="item.thumb"-->
+                    <!--:url="'/#/picture/'+item.id"-->
+                    <!--:title="item.title"-->
+                    <!--:isRate="false"-->
+              <!--&gt;</image-title-rate>-->
             </li>
 
             </template>
@@ -65,6 +73,19 @@
                   :num="item.see + '次观看'"
               ></image-title-row>
           </template>
+
+          <header-title :headerTitle="'热门动漫'" ></header-title>
+          <template v-for="(item,index) in dataAnimeHot">
+            <image-title-row
+              :isBox="true"
+              :isFlexEnd="true"
+              :img="item.thumb"
+              :title="item.title"
+              :url="'/#/anime/' + item.id"
+              :num="item.see + '次观看'"
+            ></image-title-row>
+          </template>
+          
         </div>
 
       </div>
@@ -81,7 +102,7 @@
   import ImageTitleRate from 'base/image-title-rate/image-title-rate'
   import {getPictureList,getTopicList} from 'api/picture';
   import {ERR_OK} from 'api/config';
-
+  import {getHotAnimeList} from 'api/anime';
   export default {
     data() {
       return {
@@ -97,10 +118,12 @@
         starNow: [],
         starDataNow: [],
 
-
+        pageHotSize: 6,
+        dataAnimeHot: [],
+        
         dataTotal:[],
         sortData:[],
-        sortPage:10,
+        sortPage:6,
         total: 0,
         pageSize: 16
       }
@@ -108,8 +131,19 @@
     created() {
       this._getPictureList();
       this._getTopicList();
+      this._getAnimeHotList();
     },
     methods:{
+      _getAnimeHotList(){
+        getHotAnimeList().then((res) => {
+          if (res.meta.errno === ERR_OK){
+            this.dataAnimeHot = res.data.slice(0,this.pageHotSize);
+          }else{
+            this.$Message.error(res.message);
+          }
+
+        })
+      },
       _getPictureList() {
         getPictureList().then(res => {
           if (res.meta.errno === ERR_OK){
@@ -207,6 +241,37 @@
               color: #c34b69;
             }
 
+          }
+        }
+        .picture-wrapper{
+          border-radius: 8px;
+          border: 2px solid rgba(204, 204, 204, 0.42);
+          box-shadow: 4px 4px 5px #888888;
+          width: 170px;
+          height: 160px;
+          margin-bottom: 15px;
+          overflow: hidden;
+          background-color: white;
+          .picture-box{
+            width: 100%;
+            height: 140px;
+            img{
+              width: 100%;
+            }
+          }
+          a{
+            color: black;
+            &:hover{
+              color: #c34b69;
+            }
+          }
+          p{
+            text-align: center;
+            width: 100%;
+            max-height: 12px;
+            overflow: hidden;
+            font-size: 12px;
+            margin-top: -5px;
           }
         }
       }

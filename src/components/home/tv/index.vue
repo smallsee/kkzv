@@ -72,6 +72,31 @@
                   :num="item.see + '次观看'"
               ></image-title-row>
           </template>
+
+          <header-title :headerTitle="'热门电影'" ></header-title>
+          <template v-for="(item,index) in dataMovieHot">
+            <image-title-row
+              :isBox="true"
+              :isFlexEnd="true"
+              :img="item.thumb"
+              :title="item.title"
+              :url="'/#/movie/' + item.id"
+              :num="item.see + '次观看'"
+            ></image-title-row>
+          </template>
+
+          <header-title :headerTitle="'热门文章'" ></header-title>
+          <template v-for="(item,index) in dataArticleHot">
+            <image-title-row
+              :isBox="true"
+              :isFlexEnd="true"
+              :img="item.thumb"
+              :title="item.title"
+              :url="'/#/article/' + item.id"
+              :num="item.see + '次观看'"
+            ></image-title-row>
+          </template>
+          
         </div>
 
       </div>
@@ -87,6 +112,8 @@
   import ImageTitleRow from 'base/image-title-row/image-title-row'
   import ImageTitleRate from 'base/image-title-rate/image-title-rate'
   import {getTvList,getTagList, getStarList,getDirectorList} from 'api/tv';
+  import {getHotArticleList} from 'api/article';
+  import {getHotMovieList} from 'api/movie';
   import {ERR_OK} from 'api/config';
 
   export default {
@@ -104,10 +131,14 @@
         starNow: [],
         starDataNow: [],
 
+        pageHotSize: 6,
+        dataMovieHot: [],
+        dataArticleHot: [],
+
 
         dataTotal:[],
         sortData:[],
-        sortPage:10,
+        sortPage:6,
         total: 0,
         pageSize: 16
       }
@@ -116,8 +147,30 @@
       this._getTvList();
       this._getTagList();
       this._getStarList();
+      this._getMovieHotList();
+      this._getArticleHotList();
     },
     methods:{
+      _getMovieHotList(){
+        getHotMovieList().then((res) => {
+          if (res.meta.errno === ERR_OK){
+            this.dataMovieHot = res.data.slice(0,this.pageHotSize);
+          }else{
+            this.$Message.error(res.message);
+          }
+
+        })
+      },
+      _getArticleHotList(){
+        getHotArticleList().then((res) => {
+          if (res.meta.errno === ERR_OK){
+            this.dataArticleHot = res.data.slice(0,this.pageHotSize);
+          }else{
+            this.$Message.error(res.message);
+          }
+
+        })
+      },
       _getStarList(){
         getStarList().then(res => {
           if (res.meta.errno === ERR_OK){

@@ -1,7 +1,7 @@
 export const ERR_OK = 0;
 export const has_delete = 1001;
 export const has_store = 1002;
-export const apiDomain = 'http://127.0.0.1:8000/';
+export const apiDomain = 'http://www.lifanh.com/';
 
 export const imageDeleteUrl =  apiDomain + 'api/image/delete';
 

@@ -206,8 +206,8 @@
           }
         })
       },
-      _getPictureData(id,api_token){
-        getShowPictureList(id,api_token).then(res => {
+      _getPictureData(id){
+        getShowPictureList(id).then(res => {
           if (res.meta.errno === ERR_OK){
 
 
@@ -253,6 +253,12 @@
     },
     components: {
       WriteCommit
+    },
+    watch: {
+      '$route': function (route) {
+        this._hasFav();
+        this._getPictureData(this.$route.params.id);
+      },
     }
   }
 </script>

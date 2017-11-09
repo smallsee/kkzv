@@ -147,8 +147,8 @@
             <image-title-row
               :isFlexEnd="true"
               :img="item.thumb"
-              :animeTitle="item.title"
-              :animeUrl="'/#/article/' + item.id"
+              :title="item.title"
+              :url="'/#/article/' + item.id"
               :num="item.see + '次观看'"
             ></image-title-row>
           </template>
@@ -372,6 +372,7 @@
     watch: {
       '$route': function (route) {
         this._hasFav();
+        this._getAnimeData(this.$route.params.id);
       },
     }
   }

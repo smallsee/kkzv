@@ -28,7 +28,7 @@
         :on-format-error="handleFormatError"
         :on-exceeded-size="handleMaxSize"
         type="drag"
-        action="http://127.0.0.1:8000/api/image"
+        action="http://www.lifanh.com/api/image"
         :data="imgData"
         style="display: inline-block;width:80px">
         <div v-if="!formValidate.thumb" style="width: 80px;height:80px;line-height: 80px;border: 1px dashed #dddee1;">
