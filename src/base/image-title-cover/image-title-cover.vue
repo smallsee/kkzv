@@ -11,16 +11,16 @@
   export default {
     props: {
       rateValue: {
-        type: Number,
-        default: 4
+        type: String,
+        default: '4'
       },
       width: {
-        type: Number,
-        default: 170
+        type: String,
+        default: '170'
       },
       height: {
-        type: Number,
-        default: 145
+        type: String,
+        default: '145'
       },
       url:{
         type: String,

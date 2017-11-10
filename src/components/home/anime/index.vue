@@ -39,8 +39,8 @@
 
             <template v-if="data.length > 0" v-for="(item,index) in data">
 
-            <li style="float: left">
-              <image-title-rate   width="172px" imgHeight="220px"
+            <li class="all-anime-item" style="float: left">
+              <image-title-rate   width="100%" imgHeight="222.88px"
                     :isNoMarginRight="(index+1)%4 === 0 ? true : false"
                     :img="item.thumb"
                     :url="'/#/anime/'+item.id"
@@ -268,78 +268,174 @@
 
 <style scoped lang="scss" rel="stylesheet/scss">
   @import "../../../common/sass/variable";
-  .kkz-anime{
-    box-sizing: border-box;
-    .main{
-      .main-left{
-        width: 720px;
-        height: auto;
-        .tag{
-          .tag-item{
-            margin-top: 10px;
-            font-size: 12px;
-            line-height: 15px;
-            .akira-select{
-              margin-left: 10px;
-              width: 500px;
-            }
-          }
-          .tag-item_content{
-            cursor: pointer;
-            line-height: 22px;
-            margin-right: 5px;
 
-            &.active{
-              color: #c34b69;
-            }
-            &:hover{
-              color: #c34b69;
-            }
 
+
+  @media only screen and (min-width: 50em) {
+    .kkz-anime{
+      box-sizing: border-box;
+      .main{
+        .main-left{
+          width: 720px;
+          height: auto;
+          .all-anime-item {
+            width: 170px;
+            margin-right: 10px;
           }
-        }
-      }
-      .main-right{
-        width: 250px;
-        height: auto;
-        .kkz-weekDate{
-          .date-nav{
-            margin-bottom: 10px;
-            .date-item{
-              cursor: pointer;
+          .tag{
+            .tag-item{
+              margin-top: 10px;
               font-size: 12px;
-              &:hover{
-                color: $color-border-red-d;
+              line-height: 15px;
+              .akira-select{
+                margin-left: 10px;
+                width: 500px;
               }
+            }
+            .tag-item_content{
+              cursor: pointer;
+              line-height: 22px;
+              margin-right: 5px;
+
               &.active{
                 color: #c34b69;
               }
-            }
-          }
-          .dateAnime{
-            border-bottom: 1px dashed rgba(80, 72, 72, 0.14);
-            padding: 10px 0;
-            font-size: 13px;
-
-            .title{
-              color: #118D93;
-              line-height: 22px;
-              text-decoration: none;
-              cursor: pointer;
               &:hover{
-                color: $color-border-red-d;
+                color: #c34b69;
               }
-            }
-            .now-num{
-              font-size: 12px;
-              color: #999;
-              margin: 5px 0;
+
             }
           }
         }
+        .main-right{
+          width: 250px;
+          height: auto;
+          .kkz-weekDate{
+            .date-nav{
+              margin-bottom: 10px;
+              .date-item{
+                cursor: pointer;
+                font-size: 12px;
+                &:hover{
+                  color: $color-border-red-d;
+                }
+                &.active{
+                  color: #c34b69;
+                }
+              }
+            }
+            .dateAnime{
+              border-bottom: 1px dashed rgba(80, 72, 72, 0.14);
+              padding: 10px 0;
+              font-size: 13px;
+
+              .title{
+                color: #118D93;
+                line-height: 22px;
+                text-decoration: none;
+                cursor: pointer;
+                &:hover{
+                  color: $color-border-red-d;
+                }
+              }
+              .now-num{
+                font-size: 12px;
+                color: #999;
+                margin: 5px 0;
+              }
+            }
+          }
 
 
 
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 50em) {
+    .kkz-anime{
+      box-sizing: border-box;
+      .main{
+        .main-left{
+          width: 100%;
+          height: auto;
+          .all-anime-item{
+            width: 45%;
+            margin-left: 10px;
+
+            .image-title-rate{
+              margin-right: 0;
+            }
+          }
+          .tag{
+            .tag-item{
+              margin-top: 10px;
+              font-size: 12px;
+              line-height: 15px;
+              .akira-select{
+                margin-left: 10px;
+                width: 80%;
+              }
+            }
+            .tag-item_content{
+              cursor: pointer;
+              line-height: 22px;
+              margin-right: 5px;
+
+              &.active{
+                color: #c34b69;
+              }
+              &:hover{
+                color: #c34b69;
+              }
+
+            }
+          }
+        }
+        .main-right{
+          display: none;
+          width: 250px;
+          height: auto;
+          .kkz-weekDate{
+            .date-nav{
+              margin-bottom: 10px;
+              .date-item{
+                cursor: pointer;
+                font-size: 12px;
+                &:hover{
+                  color: $color-border-red-d;
+                }
+                &.active{
+                  color: #c34b69;
+                }
+              }
+            }
+            .dateAnime{
+              border-bottom: 1px dashed rgba(80, 72, 72, 0.14);
+              padding: 10px 0;
+              font-size: 13px;
+
+              .title{
+                color: #118D93;
+                line-height: 22px;
+                text-decoration: none;
+                cursor: pointer;
+                &:hover{
+                  color: $color-border-red-d;
+                }
+              }
+              .now-num{
+                font-size: 12px;
+                color: #999;
+                margin: 5px 0;
+              }
+            }
+          }
+
+
+
+        }
       }
     }
   }

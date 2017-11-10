@@ -84,29 +84,65 @@
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  .write-commit{
-    .thumb{
-      width: 60px;
-      overflow: hidden;
-      margin-right: 10px;
-      img{
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-      }
-      .user-name{
 
-        margin-top: 5px;
-        display: inline-block;
+
+  @media only screen and (min-width: 50em) {
+    .write-commit{
+      .thumb{
         width: 60px;
-        text-align: center;
-        color: black;
-        font-size: 13px;
+        overflow: hidden;
+        margin-right: 10px;
+        img{
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+        }
+        .user-name{
+
+          margin-top: 5px;
+          display: inline-block;
+          width: 60px;
+          text-align: center;
+          color: black;
+          font-size: 13px;
+        }
+      }
+      .commit-content{
+        .commit-submit{
+          margin-top: 10px;
+        }
       }
     }
-    .commit-content{
-      .commit-submit{
-        margin-top: 10px;
+  }
+
+  @media only screen and (max-width: 50em) {
+    .write-commit{
+      .thumb{
+        display: none;
+        width: 60px;
+        overflow: hidden;
+        margin-right: 10px;
+        img{
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+        }
+        .user-name{
+
+          margin-top: 5px;
+          display: inline-block;
+          width: 60px;
+          text-align: center;
+          color: black;
+          font-size: 13px;
+        }
+      }
+      .commit-content{
+        box-sizing: border-box;
+        padding: 0 5px;
+        .commit-submit{
+          margin-top: 10px;
+        }
       }
     }
   }

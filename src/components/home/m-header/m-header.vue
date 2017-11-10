@@ -16,15 +16,16 @@
       </span>
     </div>
 
-    <div class="search">
-      <Select v-model="searchTypeNow" style="width:60px" size="small">
+    <div class="search flex-row-around">
+      <Select v-model="searchTypeNow" style="width:60px;margin-right: 5px" size="small">
         <Option v-for="item in searchType" :value="item.value" :key="item.value">{{ item.label }}</Option>
       </Select>
 
-      <Input size="small" v-model="searchText" @on-enter="search" @on-click="search" icon="search" placeholder="请输入搜索内容..." style="width: 200px"></Input>
+      <Input  size="small" v-model="searchText" @on-enter="search" @on-click="search" icon="search" placeholder="请输入搜索内容..." ></Input>
     </div>
 
     </div>
+
     <Modal
       v-model="isShowSearch"
       title="搜索结果"
@@ -118,24 +119,58 @@
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  .kkz-header{
-    background-color: #ffffff;
-    box-sizing: border-box;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.16);
-    .logo{
-      margin-right: 20px;
-    }
-    .mascot{
-      margin-right: 50px;
-    }
-    .purpose{
-      line-height: 40px;
-      font-size: 14px;
-    }
-    .search{
-      margin-top: 8px;
-    }
 
+
+  @media only screen and (min-width: 50em) {
+    .kkz-header{
+      background-color: #ffffff;
+      box-sizing: border-box;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+      .ivu-input-wrapper{
+        width: 200px;
+      }
+      .logo{
+        margin-right: 20px;
+      }
+      .mascot{
+        margin-right: 50px;
+      }
+      .purpose{
+        line-height: 40px;
+        font-size: 14px;
+      }
+      .search{
+        margin-top: 8px;
+      }
+
+    }
+  }
+
+  @media only screen and (max-width: 50em) {
+    .kkz-header{
+      .ivu-input-wrapper{
+        width: 150px;
+      }
+      background-color: #ffffff;
+      box-sizing: border-box;
+      padding: 10px 0;
+      .logo{
+        margin-right: 20px;
+      }
+      .mascot{
+        margin-right: 50px;
+        display: none;
+      }
+      .purpose{
+        line-height: 40px;
+        font-size: 14px;
+        display: none;
+      }
+      .search{
+        margin-top: 8px;
+      }
+
+    }
   }
 </style>

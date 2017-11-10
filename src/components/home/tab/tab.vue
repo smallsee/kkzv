@@ -23,9 +23,9 @@
           <span class="tab-link">图片</span>
         </router-link>
 
-        <router-link tag="div" class="tab-item" to="/article">
-          <span class="tab-link">文章</span>
-        </router-link>
+        <!--<router-link tag="div" class="tab-item" to="/article">-->
+          <!--<span class="tab-link">文章</span>-->
+        <!--</router-link>-->
 
         <router-link tag="div" class="tab-item" to="/look">
           <span class="tab-link">点播</span>
@@ -90,17 +90,21 @@
 <style scoped lang="scss" rel="stylesheet/scss">
   @import "../../../common/sass/variable";
 
-  .kkz-tab{
-    width: 100%;
-    height: 40px;
-    background: url(./header-background.gif);
-    background-size: 100%,100%;
+
+
+  @media only screen and (min-width: 50em) {
+    .kkz-tab{
+      width: 100%;
+      height: 40px;
+      background: url(./header-background.gif);
+      background-size: 100%,100%;
 
       .tab-item{
         cursor: pointer;
         span{
           padding: 0 16px;
           line-height: 40px;
+          font-size: 1.5rem;
           color: $color-text-white;
         }
         &.router-link-active{
@@ -111,6 +115,33 @@
         }
       }
 
+    }
+  }
+
+  @media only screen and (max-width: 50em) {
+    .kkz-tab{
+      width: 100%;
+      height: 40px;
+      background: url(./header-background.gif);
+      background-size: 100%,100%;
+
+      .tab-item{
+        cursor: pointer;
+        span{
+          padding: 0 0.4rem;
+          line-height: 40px;
+          font-size: 1.2rem;
+          color: $color-text-white;
+        }
+        &.router-link-active{
+          background-color: $color-text-active-orange;
+        }
+        &:hover{
+          background-color: $color-text-active-orange;
+        }
+      }
+
+    }
   }
 
 </style>

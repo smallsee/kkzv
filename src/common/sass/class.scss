@@ -10,12 +10,7 @@
   }
 }
 
-.w{
-  box-sizing: border-box;
-  width: 980px;
-  margin: 0 auto;
 
-}
 
 .flex-row{
   display: flex;
@@ -120,4 +115,22 @@
 
 .margin-bottom-20{
   margin-bottom: 20px;
+}
+
+
+@media only screen and (min-width: 50em) {
+  .w{
+    box-sizing: border-box;
+    width: 980px;
+    margin: 0 auto;
+
+  }
+}
+
+@media only screen and (max-width: 50em) {
+  .w{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+  }
 }

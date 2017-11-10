@@ -118,19 +118,44 @@
 
 <style scoped lang="scss" rel="stylesheet/scss">
   @import "../../../common/sass/variable";
-  .kkz-home{
-    box-sizing: border-box;
-    padding-top: 10px;
 
-    .main{
-      margin-top: 20px;
-      .main-left{
-        width: 720px;
-        height: auto;
+
+
+  @media only screen and (min-width: 50em) {
+    .kkz-home{
+      box-sizing: border-box;
+      padding-top: 10px;
+
+      .main{
+        margin-top: 20px;
+        .main-left{
+          width: 720px;
+          height: auto;
+        }
+        .main-right{
+          width: 250px;
+          height: auto;
+        }
       }
-      .main-right{
-        width: 250px;
-        height: auto;
+    }
+  }
+
+  @media only screen and (max-width: 50em) {
+    .kkz-home{
+      box-sizing: border-box;
+      padding-top: 10px;
+
+      .main{
+        margin-top: 20px;
+        .main-left{
+          width: 100%;
+          height: auto;
+        }
+        .main-right{
+          display: none;
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }

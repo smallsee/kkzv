@@ -68,7 +68,7 @@
       },
       videoTitle:{
         type:String,
-        default: "海贼王zzzzzasdsadaasdsasssasdsaadsada"
+        default: "海贼王"
       },
       maxHeight:{
         type: String,

@@ -31,7 +31,7 @@
 
           <div class="content clearfix">
 
-            <div class="time">
+            <div class="time flex-row-between">
               <div class="title-box">
                 <i style="color: #F6697A" class="fa fa-clock-o fa-2x"></i>
                 <span class="time_text">{{created_at.date}}</span>
@@ -85,7 +85,7 @@
           </div>
         </div>
       </div>
-    </div>F
+    </div>
 
     <div class="w" style="margin-top: -5px">
 
@@ -266,287 +266,308 @@
 <style scoped lang="scss" rel="stylesheet/scss">
 
 
-  .book_list{
-    margin-top: 20px;
-    border: 1px solid rgba(255,255,255,0.82);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    background-color: #1b2433;
-    overflow: hidden;
-    margin-bottom: 0;
-    .book_list_left{
-      float: left;
-      background-color: #1b2433;
-      border-top-left-radius: 10px;
-      padding-top: 10px;
-      width: 150px;
-      min-height: 260px;
-      border-bottom: 1px solid rgba(103, 90, 90, 0.24);
-      .user-name{
-        width: 150px;
-        margin: 20px auto;
 
-        height:30px;text-align: center;color: #fff;line-height: 20px;text-overflow:ellipsis;white-space:nowrap;overflow: hidden
-      }
-      .user-star{
-        text-align: center;
-        margin: 10px auto;
-        width: 90px;
-        display: block;
-        padding: 8px 20px;
-        background: #F6697A;
-        border-radius: 5px;
-        font-size: 12px;
-        color: white;
-        cursor: pointer;
-      }
-      .user-thumb{
-        width: 100px;
-        height: 100px;
-        margin: 0 auto;
-        border-radius: 50%;
+
+
+
+  @media only screen and (min-width: 50em) {
+    .kkz-picture_show{
+      .book_list{
+        margin-top: 20px;
+        border: 1px solid rgba(255,255,255,0.82);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: #1b2433;
         overflow: hidden;
-        margin-top: 10px;
-      }
-      img{
-        width: 100%;
-        height: 100%;
-        border-radius: 150px;
-      }
+        margin-bottom: 0;
+        .book_list_left{
+          float: left;
+          background-color: #1b2433;
+          border-top-left-radius: 10px;
+          padding-top: 10px;
+          width: 150px;
+          min-height: 260px;
+          border-bottom: 1px solid rgba(103, 90, 90, 0.24);
+          .user-name{
+            width: 150px;
+            margin: 20px auto;
 
-    }
+            height:30px;text-align: center;color: #fff;line-height: 20px;text-overflow:ellipsis;white-space:nowrap;overflow: hidden
+          }
+          .user-star{
+            text-align: center;
+            margin: 10px auto;
+            width: 90px;
+            display: block;
+            padding: 8px 20px;
+            background: #F6697A;
+            border-radius: 5px;
+            font-size: 12px;
+            color: white;
+            cursor: pointer;
+          }
+          .user-thumb{
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-top: 10px;
+          }
+          img{
+            width: 100%;
+            height: 100%;
+            border-radius: 150px;
+          }
 
-    .book_list_right{
-      width: 828px;
-      float: right;
-      overflow: hidden;
-      background-color: #edf2f6;
+        }
 
-      .title{
-        width: 100%;
-        height: 80px;
-        padding-left: 50px;
-        color: gray;
-        background-color: white;
+        .book_list_right{
+          width: 828px;
+          float: right;
+          overflow: hidden;
+          background-color: #edf2f6;
 
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 80px;
+          .title{
+            width: 100%;
+            height: 80px;
+            padding-left: 50px;
+            color: gray;
+            background-color: white;
 
-      }
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 80px;
 
-      .content{
-        margin-top: 10px;
-        width: 95%;
-        background-color: white;
-        float: right;
-        padding-left: 1%;
-        overflow: hidden;
-        .time{
-          width: 100%;
-          height: 50px;
-          background-color: white;
-          margin-bottom: 5px;
-          line-height: 50px;
-          font-size: 12px;
-          .title-box{
-            float: left;
-            height: 50px;
-            width: 630px;
-            span{
-              margin-left: 5px;
+          }
+
+          .content{
+            margin-top: 10px;
+            width: 95%;
+            background-color: white;
+            float: right;
+            padding-left: 1%;
+            overflow: hidden;
+            .time{
+              width: 100%;
+              height: 50px;
+              background-color: white;
+              margin-bottom: 5px;
+              line-height: 50px;
+              font-size: 12px;
+              .title-box{
+                float: left;
+                height: 50px;
+                width: 630px;
+                span{
+                  margin-left: 5px;
+                }
+              }
+              .collect{
+                width: 70px;
+                height: 40px;
+                margin-right: 10px;
+                float: right;
+                text-align: center;
+                background-color: #B5B5B5;
+                border-radius: 10px;
+                margin-top: 10px;
+                line-height: 40px;
+                cursor: pointer;
+              }
+            }
+
+            .content_image{
+
+              width: 98%;
+            }
+            .content-box{
+              min-height: 400px;
+            }
+            #book-list{
+              img{
+                max-width: 844px;
+                max-height: 600px;
+                cursor: pointer;
+                margin-bottom: 5px;
+              }
+            }
+
+
+            .hide_thing{
+              border: 1px dashed black;
+              width: 98%;
+              height: 80px;
+              line-height: 80px;
+              text-align: center;
+              margin-top: 20px;
+              margin-bottom: 20px;
+
             }
           }
-          .collect{
-            width: 70px;
-            height: 40px;
-            margin-right: 10px;
-            float: right;
+        }
+      }
+      .book_commit{
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        margin-top: 0;
+        .book_list_right{
+          .content{
+            min-height: 250px;
+            position: relative;
+
+          }
+          .content_commit{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 35px;
+            height: 30px;
             text-align: center;
-            background-color: #B5B5B5;
-            border-radius: 10px;
-            margin-top: 10px;
-            line-height: 40px;
-            cursor: pointer;
+            line-height: 30px;
+            font-size: 16px;
+            font-weight: bold;
           }
         }
+      }
 
-        .content_image{
+      .book_list_mask{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: rgba(0,0,0,0.8);
+        z-index:200;
+        left: 0;
+        top: 0;
 
-          width: 98%;
+        .commit_add{
+          border: 3px solid #b1aeae;
+          margin-top: 150px;
+          padding: 10px;
         }
-        .content-box{
-          min-height: 400px;
-        }
-        #book-list{
-          img{
-            max-width: 844px;
-            max-height: 600px;
-            cursor: pointer;
-            margin-bottom: 5px;
-          }
-        }
-
-
-        .hide_thing{
-          border: 1px dashed black;
-          width: 98%;
-          height: 80px;
-          line-height: 80px;
-          text-align: center;
+        .commit_add_button{
           margin-top: 20px;
-          margin-bottom: 20px;
-
         }
       }
     }
   }
-  .book_commit{
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    margin-top: 0;
-    .book_list_right{
-      .content{
-        min-height: 250px;
-        position: relative;
 
+  @media only screen and (max-width: 50em) {
+    .kkz-picture_show{
+      .book_list{
+        width: 100%;
+        margin-top: 20px;
+        border: 1px solid rgba(255,255,255,0.82);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        background-color: #1b2433;
+        overflow: hidden;
+        margin-bottom: 0;
+        .book_list_left{
+          display: none;
+        }
+
+        .book_list_right{
+          width: 100%;
+          overflow: hidden;
+          background-color: #edf2f6;
+
+          .title{
+            width: 100%;
+            height: 50px;
+            padding-left: 10px;
+            color: gray;
+            background-color: white;
+
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 50px;
+
+          }
+
+          .content{
+            width: 100%;
+            background-color: white;
+            padding-left: 1%;
+            overflow: hidden;
+            .time{
+              width: 100%;
+              height: 50px;
+              background-color: white;
+              margin-bottom: 5px;
+              line-height: 50px;
+              font-size: 12px;
+              .title-box{
+                height: 50px;
+                width: 100%;
+                span{
+                  margin-left: 5px;
+                }
+              }
+              .collect{
+                width: 70px;
+                height: 40px;
+                margin-right: 10px;
+                float: right;
+                text-align: center;
+                background-color: #B5B5B5;
+                border-radius: 10px;
+                margin-top: 10px;
+                line-height: 40px;
+                cursor: pointer;
+              }
+            }
+
+            .content_image{
+
+              width: 98%;
+            }
+            #book-list{
+              img{
+                width: 100%;
+                cursor: pointer;
+                margin-bottom: 5px;
+              }
+            }
+
+
+            .hide_thing{
+              border: 1px dashed black;
+              width: 98%;
+              height: 80px;
+              line-height: 80px;
+              text-align: center;
+              margin-top: 20px;
+              margin-bottom: 20px;
+
+            }
+          }
+        }
       }
-      .content_commit{
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 35px;
-        height: 30px;
-        text-align: center;
-        line-height: 30px;
-        font-size: 16px;
-        font-weight: bold;
+
+      .book_commit{
+
+      border-radius: 10px;
+        margin-top: 10px;
+        .book_list_right{
+          .content{
+            min-height: 120px;
+            position: relative;
+
+          }
+          .content_commit{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 35px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
       }
     }
-  }
-
-  .book_list_mask{
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    background-color: rgba(0,0,0,0.8);
-    z-index:200;
-    left: 0;
-    top: 0;
-
-    .commit_add{
-      border: 3px solid #b1aeae;
-      margin-top: 150px;
-      padding: 10px;
-    }
-    .commit_add_button{
-      margin-top: 20px;
-    }
-  }
-
-
-  .Input_Box {
-    width: 495px;
-    height: 160px;
-    border: 1px solid #ccc;
-    transition: border linear .2s, box-shadow linear .5s;
-    -moz-transition: border linear .2s, -moz-box-shadow linear .5s;
-    -webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    background-color: #fff;
-    overflow: hidden;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    margin-top: -80px;
-    margin-left: -247px;
-    -moz-box-shadow: 0 0 5px #ccc;
-    -webkit-box-shadow: 0 0 5px #ccc;
-    box-shadow: 0 0 5px #ccc;
-  }
-  .Input_Box>textarea {
-    width: 485px;
-    height: 111px;
-    padding: 5px;
-    outline: none;
-    border: 0px solid #fff;
-    resize: none;
-    font-size: 13px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-  }
-  .Input_Foot {
-    width: 100%;
-    height: 35px;
-    border-top: 1px solid #ccc;
-    background-color: #fff;
-    -moz-border-radius: 0 0 5px 5px;
-    -webkit-border-radius: 0 0 5px 5px;
-    border-radius: 0 0 5px 5px;
-    position: absolute;
-  }
-  .imgBtn {
-    float: left;
-    margin-top: 8px;
-    margin-left: 10px;
-    background-repeat: no-repeat;
-    background-position: 0 -13px;
-    height: 18px;
-    width: 20px;
-    cursor: pointer
-  }
-  .imgBtn:active {
-    margin-top: 9px;
-  }
-  .imgBtn:hover {
-    background-position: 0 -31px
-  }
-  .postBtn {
-    float: right;
-    font: 13px  Arial, Helvetica, sans-serif;
-    color: #808080;
-    padding: 9px 20px 7px 20px;
-    border-left: 1px solid #ccc;
-    cursor: pointer;
-    -moz-border-radius: 0 0 5px 0;
-    -webkit-border-radius: 0 0 5px 0;
-    border-radius: 0 0 5px 0;
-  }
-  .postBtn:hover {
-    color: #333;
-    background-color: #efefef;
-  }
-  .postBtn:active {
-    padding: 10px 20px 6px 20px;
-  }
-  .faceDiv {
-    width: 500px;
-    height: 120px;
-    border-top: 1px solid #ccc;
-    position: absolute;
-    background-color: #fff;
-    -moz-border-radius: 5px 5px 0 0;
-    -webkit-border-radius: 5px 5px 0 0;
-    border-radius: 5px 5px 0 0;
-  }
-  .faceDiv>img {
-    border: 1px solid #ccc;
-    float: left;
-    margin-left: -1px;
-    margin-top: -1px;
-    position: relative;
-    width: 24px;
-    height: 24px;
-    padding: 3px 3px 3px 3px;
-    cursor: pointer;
-  }
-  .faceDiv>img:hover {
-    background-color: #efefef;
-  }
-  .faceDiv>img:active {
-    padding: 4px 3px 2px 3px;
   }
 </style>

@@ -26,30 +26,66 @@
 
 <style scoped lang="scss" rel="stylesheet/scss">
   @import "../../../common/sass/variable";
-  .kkz-footer{
-    /*border-top: 1px solid rgba(0, 0, 0, 0.11);*/
-    background-color: #34343c;
-    box-sizing: border-box;
-    margin-top: 20px;
-    padding-top: 40px;
-    min-height: 200px;
-    h1{
-      font-size: 20px;
-      margin-bottom: 20px;
-    }
-    p{
-      color: #ccc;
-      font-size: 12px;
-      line-height: 20px;
-    }
-    .left{
-      color: white;
-      width: 450px;
-    }
 
-    .right{
-      color: white;
-      width: 450px;
+
+
+  @media only screen and (min-width: 50em) {
+    .kkz-footer{
+      /*border-top: 1px solid rgba(0, 0, 0, 0.11);*/
+      background-color: #34343c;
+      box-sizing: border-box;
+      margin-top: 20px;
+      padding-top: 40px;
+      min-height: 200px;
+      h1{
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      p{
+        color: #ccc;
+        font-size: 12px;
+        line-height: 20px;
+      }
+      .left{
+        color: white;
+        width: 450px;
+      }
+
+      .right{
+        color: white;
+        width: 450px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 50em) {
+    .kkz-footer{
+      /*border-top: 1px solid rgba(0, 0, 0, 0.11);*/
+      background-color: #34343c;
+      box-sizing: border-box;
+      margin-top: 20px;
+      padding: 0 10px;
+      padding-top: 40px;
+      min-height: 200px;
+      h1{
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      p{
+        color: #ccc;
+        font-size: 12px;
+        line-height: 20px;
+      }
+      .left{
+        color: white;
+        width: 100%;
+      }
+
+      .right{
+        display: none;
+        color: white;
+        width: 450px;
+      }
     }
   }
 </style>

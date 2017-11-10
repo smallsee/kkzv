@@ -1,5 +1,5 @@
 <template>
-  <div class="recommend">
+  <div class="new-movie">
     <header-title :headerTitle="'最新好看电影'" ></header-title>
     <ul class="clearfix">
       <template v-for="(item,index) in data">
@@ -31,5 +31,25 @@
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
+  @media only screen and (min-width: 50em) {
 
+  }
+
+  @media only screen and (max-width: 50em) {
+    .new-movie{
+      width: 100%;
+      ul{
+        width: 100%;
+        display: flex;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling:touch;
+        li{
+          margin-right: 5px;
+          .image-title-rate{
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
 </style>

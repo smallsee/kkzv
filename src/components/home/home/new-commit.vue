@@ -5,7 +5,6 @@
     <template v-for="(item,index) in data">
       <commit :img="item.user.thumb"
               :userName="item.user.name"
-              :videoTitle="item.commit.title"
               :time="''"
               :commitText="item.content"
               :userUrl="'/#/user/' + item.user.id"
@@ -26,6 +25,9 @@
           return []
         }
       }
+    },
+    mounted() {
+      console.log(this.data);
     },
     components:{
       HeaderTitle,

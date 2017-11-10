@@ -54,7 +54,7 @@
 
               <div class="info-wrapper">
                 <span class="info_name">简介:</span>
-                <span class="info_content word-break">{{data.introduction}}</span>
+                <span class="info_content introduction word-break">{{data.introduction}}</span>
               </div>
 
             </div>
@@ -99,9 +99,9 @@
 
               <template v-for="(item,index) in recommendDataShow">
 
-                <li class="float-left">
+                <li class="float-left recommend-item">
                   <image-title-rate
-                    width="172px" imgHeight="220px"
+                    width="100%" imgHeight="220px"
                     :isNoMarginRight="(index+1)%4 === 0 ? true : false"
                     :img="item.thumb"
                     :url="'/#/movie/'+item.id"
@@ -129,7 +129,7 @@
             </div>
 
             <template v-if="commitData.length" v-for="(item,index) in commitData">
-              <commit :imgSize="'58px'" :isShowMovie="false"
+              <commit :imgSize="'58px'" :isShowVideo="false"
                       :commitText="item.content"
                       :userName="item.user.name"
                       :id="item.id"
@@ -309,9 +309,6 @@
 
             this.recommend.tagList = res.data.tag;
             this.recommend.akiraList = res.data.akira;
-            this.fileShortData = res.data.files.slice(0,this.fileNum),
-              this.fileLongData = res.data.files;
-            this.fileData = this.fileShortData
           }
         })
       },
@@ -382,106 +379,232 @@
 
 <style scoped lang="scss" rel="stylesheet/scss">
   @import "../../../common/sass/variable";
-  .kkz-movie_detail{
-    box-sizing: border-box;
-    .main{
-      margin-top: 20px;
-      .main-left{
-        width: 720px;
-        height: auto;
-        position: relative;
-        .fav_style{
-          font-size: 14px;
-          position: absolute;
-          top: 10px;
-          right: 0;
-          cursor: pointer;
-        }
-        .title{
-          margin-bottom: 20px;
-          letter-spacing:1px;
-          max-width: 600px;
-          font-size: 22px;
-          span{
-            color: #888;
-          }
-        }
-        .thumb{
-          min-width: 145px;
-          height: 200px;
-          overflow: hidden;
-          margin-right: 10px;
-          img{
-            width: 100%;
-          }
-        }
-        .info{
-          .info-wrapper{
-            color: #232121;
+
+
+
+
+  @media only screen and (min-width: 50em) {
+    .kkz-movie_detail{
+      box-sizing: border-box;
+      .main{
+        margin-top: 20px;
+        .main-left{
+          width: 720px;
+          height: auto;
+          position: relative;
+          .fav_style{
             font-size: 14px;
-            margin-bottom: 5px;
-            .info_name{
+            position: absolute;
+            top: 10px;
+            right: 0;
+            cursor: pointer;
+          }
+          .title{
+            margin-bottom: 20px;
+            letter-spacing:1px;
+            max-width: 600px;
+            font-size: 22px;
+            span{
               color: #888;
             }
-            .info_content{
-              line-height: 25px;
+          }
+          .thumb{
+            min-width: 145px;
+            height: 200px;
+            overflow: hidden;
+            margin-right: 10px;
+            img{
+              width: 100%;
             }
-            a{
-              color: #118D93;
+          }
+          .info{
+            .info-wrapper{
+              color: #232121;
+              font-size: 14px;
+              margin-bottom: 5px;
+              .info_name{
+                color: #888;
+              }
+              .info_content{
+                line-height: 25px;
+              }
+              a{
+                color: #118D93;
+                &:hover{
+                  color: #dd5862;
+                }
+              }
+            }
+          }
+
+          .file-info{
+            margin-top: 20px;
+            .file{
+              border-radius: 8px;
+              display: block;
+              background-color: rgba(255, 255, 255, 0.45);
+              border: 1px solid rgba(0, 0, 0, 0.12);
+              padding: 8px 10px;
+              font-size: 13px;
+              margin: 0 10px 10px 0;
+              color: #5a4a4a;
               &:hover{
                 color: #dd5862;
+                background-color: rgba(255, 255, 255, 1);
               }
             }
           }
         }
+        .main-right{
+          box-sizing: border-box;
+          padding-left: 15px;
+          width: 250px;
+          height: auto;
+        }
+      }
+      .file-show{
+        line-height: 30px;
+        cursor: pointer;
+      }
+      .file-content{
+        background-color: #ffffff;
+        .change-recommend{
+          margin-top: -25px;
+          margin-bottom: 15px;
+        }
+      }
+      .recommend-item{
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+        width: 170px;
+        margin-right: 10px;
+      }
+      .no-commit{
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+        padding: 20px 0;
+        text-align: center;
+        font-size: 13px;
+        width: 100%;
+      }
+      .commit-page{
+        font-size: 13px;
+        margin-top: -30px;
+        margin-bottom: 10px;
+      }
+    }
+  }
 
-        .file-info{
-          margin-top: 20px;
-          .file{
-            border-radius: 8px;
-            display: block;
-            background-color: rgba(255, 255, 255, 0.45);
-            border: 1px solid rgba(0, 0, 0, 0.12);
-            padding: 8px 10px;
-            font-size: 13px;
-            margin: 0 10px 10px 0;
-            color: #5a4a4a;
-            &:hover{
-              color: #dd5862;
-              background-color: rgba(255, 255, 255, 1);
+  @media only screen and (max-width: 50em) {
+    .kkz-movie_detail{
+      box-sizing: border-box;
+      .main{
+        margin-top: 20px;
+        .main-left{
+          width: 100%;
+          height: auto;
+          position: relative;
+          .fav_style{
+            font-size: 14px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+          }
+          .title{
+            margin-bottom: 20px;
+            letter-spacing:1px;
+            max-width: 600px;
+            font-size: 16px;
+            span{
+              color: #888;
+            }
+          }
+          .thumb{
+            min-width: 145px;
+            height: 200px;
+            overflow: hidden;
+            margin-right: 10px;
+            img{
+              width: 100%;
+            }
+          }
+          .info{
+            .info-wrapper{
+              color: #232121;
+              font-size: 14px;
+              margin-bottom: 5px;
+              .info_name{
+                color: #888;
+              }
+              .info_content{
+                line-height: 25px;
+                &.introduction{
+                  max-height: 100px;
+                  overflow: hidden;
+                  display: inline-block;
+                }
+              }
+              a{
+                color: #118D93;
+                &:hover{
+                  color: #dd5862;
+                }
+              }
+            }
+          }
+
+          .file-info{
+            margin-top: 20px;
+            .file{
+              border-radius: 8px;
+              display: block;
+              background-color: rgba(255, 255, 255, 0.45);
+              border: 1px solid rgba(0, 0, 0, 0.12);
+              padding: 8px 10px;
+              font-size: 13px;
+              margin: 0 10px 10px 0;
+              color: #5a4a4a;
+              &:hover{
+                color: #dd5862;
+                background-color: rgba(255, 255, 255, 1);
+              }
             }
           }
         }
+        .main-right{
+          display: none;
+        }
       }
-      .main-right{
-        box-sizing: border-box;
-        padding-left: 15px;
-        width: 250px;
-        height: auto;
+      .file-show{
+        line-height: 30px;
+        cursor: pointer;
       }
-    }
-    .file-show{
-      line-height: 30px;
-      cursor: pointer;
-    }
-    .file-content{
-      background-color: #ffffff;
-      .change-recommend{
-        margin-top: -25px;
-        margin-bottom: 15px;
+      .file-content{
+        background-color: #ffffff;
+        .change-recommend{
+          margin-top: -25px;
+          margin-bottom: 15px;
+        }
       }
-    }
-    .no-commit{
-      border-top: 1px solid rgba(0, 0, 0, 0.12);
-      padding: 20px 0;
-      text-align: center;
-      font-size: 13px;
-      width: 100%;
-    }
-    .commit-page{
-      font-size: 13px;
-      margin-top: -30px;
-      margin-bottom: 10px;
+      .recommend-item{
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+        width: 45%;
+        margin-left: 10px;
+        .image-title-rate{
+          margin-right: 0;
+        }
+      }
+      .no-commit{
+        border-top: 1px solid rgba(0, 0, 0, 0.12);
+        padding: 20px 0;
+        text-align: center;
+        font-size: 13px;
+        width: 100%;
+      }
+      .commit-page{
+        font-size: 13px;
+        margin-top: -30px;
+        margin-bottom: 10px;
+      }
     }
   }
 </style>

@@ -34,7 +34,7 @@
 
 
       <div class="tv">
-        <iframe :src="'http://jiexi.92fz.cn/player/vip.php?url=' + file_url " width="100%" scrolling="no" height="551.25px" ></iframe>
+        <iframe :src="'http://jiexi.92fz.cn/player/vip.php?url=' + file_url " width="100%" scrolling="no" height="100%" ></iframe>
       </div>
 
       <div class="file-info clearfix">
@@ -88,64 +88,139 @@
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  .kkz-tv_show{
-    .slide-enter-active, .slide-leave-active{
-      transition: all 1s;
-    }
-    .slide-enter, .slide-leave-to{
-      opacity: 0;
-    }
-    .mask-box{
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-color: black;
-      z-index: 20;
-    }
-    .title{
-      margin-top: 20px;
-      .ivu-breadcrumb-item-link{
-        &:hover{
-          color: #dd5862;
-        }
+  
+
+  @media only screen and (min-width: 50em) {
+    .kkz-tv_show{
+      .slide-enter-active, .slide-leave-active{
+        transition: all 1s;
       }
-      .light{
-        position: relative;
+      .slide-enter, .slide-leave-to{
+        opacity: 0;
+      }
+      .mask-box{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
         background-color: black;
-        color: #ffffff;
-        z-index:30;
+        z-index: 20;
       }
-      .close{
-        background-color: white;
-        color: #dd5862;
-      }
-    }
-    .tv{
-      position: relative;
-      margin-top: 20px;
-      z-index:30;
-    }
-    .file-info{
-      margin-top: 20px;
-      .file{
-        cursor: pointer;
-        border-radius: 8px;
-        display: block;
-        background-color: rgba(255, 255, 255, 0.45);
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        padding: 8px 10px;
-        font-size: 13px;
-        margin: 0 10px 10px 0;
-        color: #5a4a4a;
-        &:hover{
-          color: #dd5862;
-          background-color: rgba(255, 255, 255, 1);
+      .title{
+        margin-top: 20px;
+        .ivu-breadcrumb-item-link{
+          &:hover{
+            color: #dd5862;
+          }
         }
-        &.active{
+        .light{
+          position: relative;
+          background-color: black;
+          color: #ffffff;
+          z-index:30;
+        }
+        .close{
+          background-color: white;
           color: #dd5862;
-          background-color: rgba(255, 255, 255, 1);
+        }
+      }
+      .tv{
+        position: relative;
+        margin-top: 20px;
+        z-index:30;
+        width: 100%;
+        height: 551.25px;
+      }
+      .file-info{
+        margin-top: 20px;
+        .file{
+          cursor: pointer;
+          border-radius: 8px;
+          display: block;
+          background-color: rgba(255, 255, 255, 0.45);
+          border: 1px solid rgba(0, 0, 0, 0.12);
+          padding: 8px 10px;
+          font-size: 13px;
+          margin: 0 10px 10px 0;
+          color: #5a4a4a;
+          &:hover{
+            color: #dd5862;
+            background-color: rgba(255, 255, 255, 1);
+          }
+          &.active{
+            color: #dd5862;
+            background-color: rgba(255, 255, 255, 1);
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 50em) {
+    .kkz-tv_show{
+      .slide-enter-active, .slide-leave-active{
+        transition: all 1s;
+      }
+      .slide-enter, .slide-leave-to{
+        opacity: 0;
+      }
+      .mask-box{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: black;
+        z-index: 20;
+      }
+
+      .title{
+        margin-top: 20px;
+        .ivu-breadcrumb-item-link{
+          &:hover{
+            color: #dd5862;
+          }
+        }
+        .light{
+          position: relative;
+          background-color: black;
+          color: #ffffff;
+          z-index:30;
+        }
+        .close{
+          background-color: white;
+          color: #dd5862;
+        }
+      }
+      .tv{
+        position: relative;
+        margin-top: 20px;
+        z-index:30;
+
+        width: 100%;
+        height: 235px;
+      }
+      .file-info{
+        margin-top: 20px;
+        .file{
+          cursor: pointer;
+          border-radius: 8px;
+          display: block;
+          background-color: rgba(255, 255, 255, 0.45);
+          border: 1px solid rgba(0, 0, 0, 0.12);
+          padding: 8px 10px;
+          font-size: 13px;
+          margin: 0 10px 10px 0;
+          color: #5a4a4a;
+          &:hover{
+            color: #dd5862;
+            background-color: rgba(255, 255, 255, 1);
+          }
+          &.active{
+            color: #dd5862;
+            background-color: rgba(255, 255, 255, 1);
+          }
         }
       }
     }

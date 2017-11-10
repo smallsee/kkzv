@@ -52,13 +52,30 @@
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-  .kkz-top{
-    position: relative;
+
+
+
+  @media only screen and (min-width: 50em) {
+    .kkz-top{
+      position: relative;
+    }
+    .kkz-body{
+      min-height: 660px;
+    }
+    .kkz-search-box{
+      position: relative;
+    }
   }
-  .kkz-body{
-    min-height: 660px;
-  }
-  .kkz-search-box{
-    position: relative;
+
+  @media only screen and (max-width: 50em) {
+    .kkz-top{
+      position: relative;
+    }
+    .kkz-body{
+      min-height: 335px;
+    }
+    .kkz-search-box{
+      position: relative;
+    }
   }
 </style>

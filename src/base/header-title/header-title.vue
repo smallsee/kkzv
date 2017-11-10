@@ -61,6 +61,7 @@
     margin-bottom: 10px;
     padding-left: 10px;
     h4{
+      font-size: 1.6rem;
       line-height: 20px;
     }
     span{

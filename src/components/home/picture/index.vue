@@ -30,7 +30,7 @@
 
             <template v-if="data.length > 0" v-for="(item,index) in data">
 
-            <li class="float-left margin-right-10" :class="{'no-margin-right' : (index + 1 ) % 4 ===0}">
+            <li class="float-left margin-right-10 all-anime-item" :class="{'no-margin-right' : (index + 1 ) % 4 ===0}">
 
               <div class="picture-wrapper" >
                 <div class="picture-box">
@@ -213,109 +213,193 @@
 
 <style scoped lang="scss" rel="stylesheet/scss">
   @import "../../../common/sass/variable";
-  .kkz-picture{
-    box-sizing: border-box;
-    .main{
-      .main-left{
-        width: 720px;
-        height: auto;
-        .topic{
-          .topic-item{
-            margin-top: 10px;
-            font-size: 12px;
-            line-height: 15px;
-            .star-select{
-              margin-left: 10px;
-              width: 500px;
-            }
-          }
-          .topic-item_content{
-            cursor: pointer;
-            line-height: 22px;
-            margin-right: 5px;
 
-            &.active{
-              color: #c34b69;
-            }
-            &:hover{
-              color: #c34b69;
-            }
 
-          }
-        }
-        .picture-wrapper{
-          border-radius: 8px;
-          border: 2px solid rgba(204, 204, 204, 0.42);
-          box-shadow: 4px 4px 5px #888888;
-          width: 170px;
-          height: 160px;
-          margin-bottom: 15px;
-          overflow: hidden;
-          background-color: white;
-          .picture-box{
-            width: 100%;
-            height: 140px;
-            img{
-              width: 100%;
-            }
-          }
-          a{
-            color: black;
-            &:hover{
-              color: #c34b69;
-            }
-          }
-          p{
-            text-align: center;
-            width: 100%;
-            max-height: 12px;
-            overflow: hidden;
-            font-size: 12px;
-            margin-top: -5px;
-          }
-        }
-      }
-      .main-right{
-        width: 250px;
-        height: auto;
-        .kkz-weekDate{
-          .date-nav{
-            margin-bottom: 10px;
-            .date-item{
-              cursor: pointer;
+
+  @media only screen and (min-width: 50em) {
+    .kkz-picture{
+      box-sizing: border-box;
+      .main{
+        .main-left{
+          width: 720px;
+          height: auto;
+          .topic{
+            .topic-item{
+              margin-top: 10px;
               font-size: 12px;
-              &:hover{
-                color: $color-border-red-d;
+              line-height: 15px;
+              .star-select{
+                margin-left: 10px;
+                width: 500px;
               }
+            }
+            .topic-item_content{
+              cursor: pointer;
+              line-height: 22px;
+              margin-right: 5px;
+
               &.active{
                 color: #c34b69;
               }
+              &:hover{
+                color: #c34b69;
+              }
+
             }
           }
-          .datePicture{
-            border-bottom: 1px dashed rgba(80, 72, 72, 0.14);
-            padding: 10px 0;
-            font-size: 13px;
-
-            .title{
-              color: #118D93;
-              line-height: 22px;
-              text-decoration: none;
-              cursor: pointer;
-              &:hover{
-                color: $color-border-red-d;
+          .picture-wrapper{
+            border-radius: 8px;
+            border: 2px solid rgba(204, 204, 204, 0.42);
+            box-shadow: 4px 4px 5px #888888;
+            width: 170px;
+            height: 160px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            background-color: white;
+            .picture-box{
+              width: 100%;
+              height: 140px;
+              img{
+                width: 100%;
               }
             }
-            .now-num{
+            a{
+              color: black;
+              &:hover{
+                color: #c34b69;
+              }
+            }
+            p{
+              text-align: center;
+              width: 100%;
+              max-height: 12px;
+              overflow: hidden;
               font-size: 12px;
-              color: #999;
-              margin: 5px 0;
+              margin-top: -5px;
             }
           }
         }
+        .main-right{
+          width: 250px;
+          height: auto;
+          .kkz-weekDate{
+            .date-nav{
+              margin-bottom: 10px;
+              .date-item{
+                cursor: pointer;
+                font-size: 12px;
+                &:hover{
+                  color: $color-border-red-d;
+                }
+                &.active{
+                  color: #c34b69;
+                }
+              }
+            }
+            .datePicture{
+              border-bottom: 1px dashed rgba(80, 72, 72, 0.14);
+              padding: 10px 0;
+              font-size: 13px;
+
+              .title{
+                color: #118D93;
+                line-height: 22px;
+                text-decoration: none;
+                cursor: pointer;
+                &:hover{
+                  color: $color-border-red-d;
+                }
+              }
+              .now-num{
+                font-size: 12px;
+                color: #999;
+                margin: 5px 0;
+              }
+            }
+          }
 
 
 
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 50em) {
+
+
+    .kkz-picture{
+      box-sizing: border-box;
+      .main{
+        .main-left{
+          width: 100%;
+          height: auto;
+          .all-anime-item{
+            margin-right: 0;
+            margin-left: 10px;
+            .image-title-rate{
+              margin-right: 0;
+            }
+          }
+          .topic{
+            .topic-item{
+              margin-top: 10px;
+              font-size: 12px;
+              line-height: 15px;
+              .star-select{
+                margin-left: 10px;
+                width: 500px;
+              }
+            }
+            .topic-item_content{
+              cursor: pointer;
+              line-height: 22px;
+              margin-right: 5px;
+
+              &.active{
+                color: #c34b69;
+              }
+              &:hover{
+                color: #c34b69;
+              }
+
+            }
+          }
+          .picture-wrapper{
+            border-radius: 8px;
+            border: 2px solid rgba(204, 204, 204, 0.42);
+            box-shadow: 4px 4px 5px #888888;
+            width: 170px;
+            height: 160px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            background-color: white;
+            .picture-box{
+              width: 100%;
+              height: 140px;
+              img{
+                width: 100%;
+              }
+            }
+            a{
+              color: black;
+              &:hover{
+                color: #c34b69;
+              }
+            }
+            p{
+              text-align: center;
+              width: 100%;
+              max-height: 12px;
+              overflow: hidden;
+              font-size: 12px;
+              margin-top: -5px;
+            }
+          }
+        }
+        .main-right{
+          display: none;
+        }
       }
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="popular-anime">
+  <div class="new-type">
     <header-title :headerTitle="headerTitle" :headerText="headerText"></header-title>
 
     <ul class="clearfix">
@@ -68,4 +68,25 @@
 
 <style scoped lang="scss" rel="stylesheet/scss">
 
+  @media only screen and (min-width: 50em) {
+
+  }
+
+  @media only screen and (max-width: 50em) {
+      .new-type{
+        width: 100%;
+        ul{
+          width: 100%;
+          display: flex;
+          overflow-x: scroll;
+          -webkit-overflow-scrolling:touch;
+          li{
+              margin-right: 5px;
+            .image-title-rate{
+              margin-right: 0;
+            }
+          }
+        }
+      }
+  }
 </style>
